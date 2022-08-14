@@ -1,0 +1,261 @@
+<main id="main" class="main">
+   <div class="pagetitle">
+      <h1>Form Elements</h1>
+      <nav>
+         <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+            <li class="breadcrumb-item">Forms</li>
+            <li class="breadcrumb-item active">Elements</li>
+         </ol>
+      </nav>
+   </div>
+   <section class="section">
+      <div class="row">
+         <div class="col-lg-6">
+            <div class="card">
+               <div class="card-body">
+                  <h5 class="card-title textAlign">Create an GreenHouse</h5>
+                  <form [formGroup]="form" (ngSubmit)="clicksub()">
+                     <!-- <select formControlName="loc" name="loc" id="loc" class="form-select"
+                        aria-label="Default select example" required autofocus>
+                        <option selected="selected">Choose the client name</option>
+                        <option *ngFor="let item of listOfAllProcessBinding" [value]="item['userName']">
+                           {{item['nameGreenHouse']}}
+                        </option>
+                     </select> -->
+                     <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">The Client</label>
+                        <div class="col-sm-10">
+                           <select formControlName="lop" name="lop" id="lop" class="form-select"
+                              aria-label="Default select example" required autofocus>
+                              <option selected="selected" disabled>Choose the greenhouse name</option>
+                              <option *ngFor="let item of listOfAllProcessBinding" [value]="item['Id_GreenHouse']">
+                                 {{item['Id_GreenHouse']}}
+                              </option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Latitude</label>
+                        <div class="col-sm-10"> <input formControlName="latitude" id="latitude" type="number"
+                              placeholder="Enter the latitude of GreenHouse" class="form-control">
+                           <small *ngIf="exformFunction.latitude.invalid && exformFunction.latitude.touched"
+                              class="text-danger" required autofocus>
+                              This filed is required !!
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Longitude</label>
+                        <div class="col-sm-10"> <input formControlName="longitude" id="longitude" type="number"
+                              placeholder="Enter the longitude of GreenHouse" class="form-control">
+                           <small *ngIf="exformFunction.longitude.invalid && exformFunction.longitude.touched"
+                              class="text-danger" required autofocus>
+                              This filed is required !!
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Tube PVC</label>
+                        <div class="col-sm-10"> <input formControlName="pvcMeter" id="pvcMeter" type="number"
+                              placeholder="Enter PVC in meter" class="form-control">
+                           <small *ngIf="exformFunction.pvcMeter.invalid && exformFunction.pvcMeter.touched"
+                              class="text-danger" required autofocus>
+                              This filed is required !!
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Coude PVC</label>
+                        <div class="col-sm-10"> <input formControlName="coudePVC" id="coudePVC" type="number"
+                              placeholder="Enter Coude in meter" class="form-control">
+                           <small *ngIf="exformFunction.coudePVC.invalid && exformFunction.coudePVC.touched"
+                              class="text-danger" required autofocus>
+                              This filed is required !!
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Pompe Eau</label>
+                        <div class="col-sm-10"> <input formControlName="pompeEau" id="pompeEau" type="number"
+                              placeholder="Enter the number of pompe eau" class="form-control">
+                           <small *ngIf="exformFunction.pompeEau.invalid && exformFunction.pompeEau.touched"
+                              class="text-danger" required autofocus>
+                              This filed is required !!
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Capteur Luminosite</label>
+                        <div class="col-sm-10"> <input formControlName="capteurLuminosite" id="capteurLuminosite"
+                              type="number" placeholder="Enter the number of light sensor" class="form-control">
+                           <small
+                              *ngIf="exformFunction.capteurLuminosite.invalid && exformFunction.capteurLuminosite.touched"
+                              class="text-danger" required autofocus>
+                              This filed is required !!
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Capteur Temperature</label>
+                        <div class="col-sm-10"> <input formControlName="capteurTemperature" id="capteurTemperature"
+                              type="number" placeholder="Enter the number of pompe eau" class="form-control">
+                           <small
+                              *ngIf="exformFunction.capteurTemperature.invalid && exformFunction.capteurTemperature.touched"
+                              class="text-danger" required autofocus>
+                              This filed is required !!
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Capteur NiveauEau</label>
+                        <div class="col-sm-10"> <input formControlName="capteurNiveauEau" id="capteurNiveauEau"
+                              type="number" placeholder="Enter the number of water level sensor" class="form-control">
+                           <small
+                              *ngIf="exformFunction.capteurNiveauEau.invalid && exformFunction.capteurNiveauEau.touched"
+                              class="text-danger" required autofocus>
+                              This filed is required !!
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Carte Technologique</label>
+                        <div class="col-sm-10"> <input formControlName="carteTechnologique" id="carteTechnologique"
+                              type="number" placeholder="Enter the number of technologique card" class="form-control">
+                           <small
+                              *ngIf="exformFunction.carteTechnologique.invalid && exformFunction.carteTechnologique.touched"
+                              class="text-danger" required autofocus>
+                              This filed is required !!
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Cable_Liaison</label>
+                        <div class="col-sm-10"> <input formControlName="cableLaision" id="cableLaision" type="number"
+                              placeholder="Enter the number of meter of Cable_Liaison" class="form-control">
+                           <small *ngIf="exformFunction.cableLaision.invalid && exformFunction.cableLaision.touched"
+                              class="text-danger" required autofocus>
+                              This filed is required !!
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Camera</label>
+                        <div class="col-sm-10"> <input formControlName="camera" id="camera" type="number"
+                              placeholder="Enter the number cameras" class="form-control">
+                           <small *ngIf="exformFunction.camera.invalid && exformFunction.camera.touched"
+                              class="text-danger" required autofocus>
+                              This filed is required !!
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Support_Metallique</label>
+                        <div class="col-sm-10"> <input formControlName="supportMetallique" id="supportMetallique"
+                              type="number" placeholder="Enter the number of meter supportMetallique"
+                              class="form-control">
+                           <small
+                              *ngIf="exformFunction.supportMetallique.invalid && exformFunction.supportMetallique.touched"
+                              class="text-danger" required autofocus>
+                              This filed is required !!
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Collier Metallique</label>
+                        <div class="col-sm-10"> <input formControlName="collierMetallique" id="collierMetallique"
+                              type="number" placeholder="Enter the number of collier Metallique" class="form-control">
+                           <small
+                              *ngIf="exformFunction.collierMetallique.invalid && exformFunction.collierMetallique.touched"
+                              class="text-danger" required autofocus>
+                              This filed is required !!
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Vanne SPH</label>
+                        <div class="col-sm-10"> <input formControlName="vanneSPH" id="vanneSPH" type="number"
+                              placeholder="Enter the number of vanne SPH" class="form-control">
+                           <small *ngIf="exformFunction.vanneSPH.invalid && exformFunction.vanneSPH.touched"
+                              class="text-danger" required autofocus>
+                              This filed is required !!
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Embout Filete PVC</label>
+                        <div class="col-sm-10"> <input formControlName="emboutFiletePVC" id="emboutFiletePVC"
+                              type="number" placeholder="Enter the number of embout Filete PVC" class="form-control">
+                           <small
+                              *ngIf="exformFunction.emboutFiletePVC.invalid && exformFunction.emboutFiletePVC.touched"
+                              class="text-danger" required autofocus>
+                              This filed is required !!
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Ventilateur</label>
+                        <div class="col-sm-10"> <input formControlName="ventilateur" id="ventilateur" type="number"
+                              placeholder="Enter the number of ventilateur " class="form-control">
+                           <small *ngIf="exformFunction.ventilateur.invalid && exformFunction.ventilateur.touched"
+                              class="text-danger" required autofocus>
+                              This filed is required !!
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <div class="col-sm-10"> <button type="submit" class="btn btn-primary right">Create an
+                              greenhouse</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+
+
+         <div class="col-lg-6">
+            <div class="card">
+               <div class="card-body">
+                  <h5 class="card-title textAlign">List Of process pending</h5>
+                  <table class="table datatable">
+                     <thead>
+                        <tr>
+                           <th scope="col">Name</th>
+                           <th scope="col">Latitude</th>
+                           <th scope="col">Longitude</th>
+                           <th scope="col">Plantes</th>
+                           <th scope="col">Etats</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr *ngFor="let item of listOfAllProcessBinding">
+                           <th scope="row">{{item['Id_GreenHouse']}}</th>
+                           <td>{{item['latitude']}}</td>
+                           <td>{{item['longitude']}}</td>
+                           <td>{{item['nbPlante']}}</td>
+                           <td class="badge border-warning border-1 text-warning">{{item['etatProcess']}}</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+            <ng-container *ngIf="visible1">
+               <div class="card">
+                  <div class="card-body">
+                     <h5 class="card-title textAlign">QR-Code Green House</h5>
+                     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                           <div class="carousel-item active"> <img src="{{QRCodeImage}}" class="d-block w-100"
+                                 alt="..."></div>
+                        </div>
+                        <br>
+                        <button type="button" class="btn btn-dark right" (click)="DownloadButton()"><i class="bi bi-download"></i></button>
+                     </div>
+                  </div>
+               </div>
+            </ng-container>
+         </div>
+      </div>
+   </section>
+</main>

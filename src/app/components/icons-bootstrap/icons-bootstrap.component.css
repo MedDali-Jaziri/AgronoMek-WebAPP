@@ -1,0 +1,11 @@
+.textAlign{
+    text-align: center;
+}
+
+.cardCenter{
+    margin-left: auto;
+    margin-right: auto;
+}
+.right{
+    float: right;
+}

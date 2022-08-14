@@ -1,0 +1,105 @@
+<main id="main" class="main">
+   <div class="pagetitle">
+      <h1>Form Elements</h1>
+      <nav>
+         <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/">Manage Client</a></li>
+            <li class="breadcrumb-item">Add Process</li>
+         </ol>
+      </nav>
+   </div>
+   <section class="section">
+      <div class="row">
+         <div class="col-lg-10 cardCenter">
+            <div class="card">
+               <div class="card-body">
+                  <h5 class="card-title textAlign">Add a new process</h5><br>
+                  <form [formGroup]="form" (ngSubmit)="clicksub()">
+                     <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">The Client</label>
+                        <div class="col-sm-10">
+                           <select formControlName="loc" name="loc" id="loc" class="form-select"
+                              aria-label="Default select example" required autofocus>
+                              <option selected="selected" disabled>Choose the client name</option>
+                              <option *ngFor="let item of listOfAllClient" [value]="item['userName']">
+                                 {{item['userName']}} ({{item['email']}})
+                              </option>
+                           </select>
+                           <small *ngIf="exformFunction.loc.invalid && exformFunction.loc.touched" class="text-danger"
+                              required autofocus>
+                              Please select an client
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">The Technician</label>
+                        <div class="col-sm-10">
+                           <select formControlName="lot" name="lot" id="lot" class="form-select"
+                              aria-label="Default select example" required autofocus>
+                              <option selected="selected" disabled>Choose the technician name</option>
+                              <option *ngFor="let item of listOfAllTechnician" [value]="item['userName']">
+                                 {{item['userName']}} ({{item['email']}})
+                              </option>
+                           </select>
+                           <small *ngIf="exformFunction.lot.invalid && exformFunction.lot.touched" class="text-danger"
+                              required autofocus>
+                              Please select an technician
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Name GreenHouse</label>
+                        <div class="col-sm-10"> <input type="text" formControlName="nameGreenHouse" id="nameGreenHouse"
+                              placeholder="Enter the name of GreenHouse" class="form-control">
+
+                           <small *ngIf="exformFunction.nameGreenHouse.invalid && exformFunction.nameGreenHouse.touched"
+                              class="text-danger" required autofocus>
+                              Please enter the name GreenHouse
+                           </small>
+                        </div>
+
+                     </div>
+                     
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Latitude of GreenHouse</label>
+                        <div class="col-sm-10"> <input formControlName="latitude" id="latitude" type="number"
+                              placeholder="Enter the latitude of GreenHouse" class="form-control">
+                           <small *ngIf="exformFunction.latitude.invalid && exformFunction.latitude.touched"
+                              class="text-danger" required autofocus>
+                              Please enter the latitude of GreenHouse
+                           </small>
+                        </div>
+                     </div>
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Longitude of GreenHouse</label>
+                        <div class="col-sm-10"> <input formControlName="longitude" id="longitude" type="number"
+                              placeholder="Enter the longitude of GreenHouse" class="form-control">
+                           <small *ngIf="exformFunction.longitude.invalid && exformFunction.longitude.touched"
+                              class="text-danger" required autofocus>
+                              Please enter the longitude of GreenHouse
+                           </small>
+                        </div>
+                     </div>
+
+                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">The plantes</label>
+                        <div class="col-sm-10"> <input formControlName="nbPlantes" id="nbPlantes" type="number" placeholder="How many plants do you need ??"
+                              class="form-control">
+                              <small *ngIf="exformFunction.nbPlantes.invalid && exformFunction.nbPlantes.touched"
+                              class="text-danger" required autofocus>
+                              Please enter the number od plantes you need it
+                           </small>
+                           </div>
+                     </div>
+                     <br>
+                     <div class="row mb-3">
+                        <div class="col-sm-10"> <button type="submit" class="btn btn-primary right">Add Client</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</main>

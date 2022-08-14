@@ -1,0 +1,45 @@
+<main id="main" class="main">
+   <div class="pagetitle">
+      <h1>Data Tables</h1>
+      <nav>
+         <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+            <li class="breadcrumb-item">Tables</li>
+            <li class="breadcrumb-item active">Data</li>
+         </ol>
+      </nav>
+   </div>
+   <section class="section">
+      <div class="row">
+         <div class="col-lg-12">
+            <div class="card">
+               <div class="card-body">
+                  <h5 class="card-title textAlign">List Of process</h5>
+                  <table class="table datatable">
+                     <thead>
+                        <tr>
+                           <th scope="col">Name</th>
+                           <th class="textAlign" scope="col">Latitude</th>
+                           <th class="textAlign" scope="col">Longitude</th>
+                           <th class="textAlign" scope="col">Plantes</th>
+                           <th class="textAlign" scope="col">Etats</th>
+                           <th class="textAlign" scope="col">QR-Code</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr *ngFor="let item of listOfAllProcessBinding">
+                           <th scope="row">{{item['Id_GreenHouse']}}</th>
+                           <td class="textAlign">{{item['latitude']}}</td>
+                           <td class="textAlign">{{item['longitude']}}</td>
+                           <td class="textAlign">{{item['nbPlante']}}</td>
+                           <td class="textAlign">{{item['etatProcess']}}</td>
+                           <td class="textAlign"><button type="button" class="btn btn-dark" (click)="onClick(item['Id_GreenHouse'])"><i class="bi bi-download"></i></button></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</main>

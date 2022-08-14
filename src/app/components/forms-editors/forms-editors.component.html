@@ -1,0 +1,54 @@
+<main id="main" class="main">
+   <div class="pagetitle">
+      <h1>Accordion</h1>
+      <nav>
+         <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/">Manage Client
+               </a></li>
+            <li class="breadcrumb-item">List Client</li>
+         </ol>
+      </nav>
+   </div><br><br>
+   <section class="section">
+      <div class="row">
+         <div class="col-lg-12">
+            <div class="card">
+               <div class="card-body">
+                  <h5 class="card-title textAlign">The List Of Client</h5>
+                  <table class="table datatable">
+                     <thead>
+                        <tr>
+                           <th scope="col">#</th>
+                           <th scope="col">Name</th>
+                           <th scope="col">email</th>
+                           <th scope="col">Country</th>
+                           <th scope="col">Start Date</th>
+                           <th scope="col">Supprimer</th>
+                           <th scope="col">Modifier</th>
+
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr *ngFor="let item of listOfAllClient">
+                           <th>{{item['id']}}</th>
+                           <td>{{item['userName']}}</td>
+                           <td>{{item['email']}}</td>
+                           <td>{{item['country']}}</td>
+                           <td>{{item['createdAt']}}</td>
+                           <td class="tdCenter">
+                              <a class="btn" (click)="deleteAnClient(item['id'],item['email'])">
+                                 <i class="bi bi-person-x-fill" style="font-size: 2em;"></i>
+                              </a>
+                           </td>
+                           <td class="tdCenter">
+                              <i class="bi bi-pencil-square" style="font-size: 2em;"></i>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</main>
