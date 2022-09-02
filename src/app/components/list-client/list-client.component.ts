@@ -1,25 +1,25 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-accordion',
-  templateUrl: './accordion.component.html',
-  styleUrls: ['./accordion.component.css']
+  selector: 'app-list-client',
+  templateUrl: './list-client.component.html',
+  styleUrls: ['./list-client.component.css']
 })
-export class AccordionComponent implements OnInit {
-  listOfAllTechnician: any;
+export class listClientComponent implements OnInit {
+  listOfAllClient: any;
   constructor(private router: Router, private http: HttpClient) {
-    this.http.get('http://37.59.204.222:85/api/user/getAllTechnician/',).subscribe(res => {
-      this.listOfAllTechnician = res;
+    this.http.get('http://37.59.204.222:85/api/user/getAllClientAddByAdmin/',).subscribe(res => {
+      this.listOfAllClient = res;
       console.log(res)
     })
   }
 
   ngOnInit(): void {
   }
-  deleteAnTechnician(id: any, email: any) {
+  deleteAnClient(id: any, email: any) {
     let key, val;
     console.log(id);
     console.log(email);
@@ -41,17 +41,13 @@ export class AccordionComponent implements OnInit {
         for ([key, val] of Object.entries(res)) {
           if (key == "message") {
             console.log(val)
-            this.http.get('http://37.59.204.222:85/api/user/getAllTechnician/',).subscribe(res => {
-              this.listOfAllTechnician = res;
+            this.http.get('http://37.59.204.222:85/api/user/getAllClientAddByAdmin/',).subscribe(res => {
+              this.listOfAllClient = res;
               console.log(res)
             })
           }
         }
       })
     })
-  }
-
-  editAnTechnician(id: any, email: any) {
-
   }
 }

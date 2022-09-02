@@ -1,25 +1,25 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-forms-editors',
-  templateUrl: './forms-editors.component.html',
-  styleUrls: ['./forms-editors.component.css']
+  selector: 'app-list-technician',
+  templateUrl: './list-technician.component.html',
+  styleUrls: ['./list-technician.component.css']
 })
-export class FormsEditorsComponent implements OnInit {
-  listOfAllClient: any;
+export class listTechnicianComponent implements OnInit {
+  listOfAllTechnician: any;
   constructor(private router: Router, private http: HttpClient) {
-    this.http.get('http://37.59.204.222:85/api/user/getAllClientAddByAdmin/',).subscribe(res => {
-      this.listOfAllClient = res;
+    this.http.get('http://37.59.204.222:85/api/user/getAllTechnician/',).subscribe(res => {
+      this.listOfAllTechnician = res;
       console.log(res)
     })
   }
 
   ngOnInit(): void {
   }
-  deleteAnClient(id: any, email: any) {
+  deleteAnTechnician(id: any, email: any) {
     let key, val;
     console.log(id);
     console.log(email);
@@ -41,13 +41,17 @@ export class FormsEditorsComponent implements OnInit {
         for ([key, val] of Object.entries(res)) {
           if (key == "message") {
             console.log(val)
-            this.http.get('http://37.59.204.222:85/api/user/getAllClientAddByAdmin/',).subscribe(res => {
-              this.listOfAllClient = res;
+            this.http.get('http://37.59.204.222:85/api/user/getAllTechnician/',).subscribe(res => {
+              this.listOfAllTechnician = res;
               console.log(res)
             })
           }
         }
       })
     })
+  }
+
+  editAnTechnician(id: any, email: any) {
+
   }
 }

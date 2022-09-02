@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
 
 @Component({
-  selector: 'app-icons-remix',
-  templateUrl: './icons-remix.component.html',
-  styleUrls: ['./icons-remix.component.css']
+  selector: 'app-list-greenhouse',
+  templateUrl: './list-greenhouse.component.html',
+  styleUrls: ['./list-greenhouse.component.css']
 })
-export class IconsRemixComponent implements OnInit {
+export class listGreenHouse implements OnInit {
   listOfAllProcessBinding: any;
   base64Image: any;
   constructor(private http: HttpClient) { }

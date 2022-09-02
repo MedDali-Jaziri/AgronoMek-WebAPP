@@ -6,11 +6,11 @@ import { Observable, Observer } from 'rxjs';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-icons-bootstrap',
-  templateUrl: './icons-bootstrap.component.html',
-  styleUrls: ['./icons-bootstrap.component.css']
+  selector: 'app-add-greenhouse',
+  templateUrl: './add-greenhouse.component.html',
+  styleUrls: ['./add-greenhouse.component.css']
 })
-export class IconsBootstrapComponent implements OnInit {
+export class addGreenHouseComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   listOfAllProcessBinding: any;
   visible1: boolean = false;
