@@ -5,11 +5,11 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-forms-elements',
-  templateUrl: './forms-elements.component.html',
-  styleUrls: ['./forms-elements.component.css']
+  selector: 'app-add-process',
+  templateUrl: './add-process.component.html',
+  styleUrls: ['./add-process.component.css']
 })
-export class FormsElementsComponent implements OnInit {
+export class addProcessComponent implements OnInit {
   listOfAllClient: any;
   listOfAllTechnician: any;
 

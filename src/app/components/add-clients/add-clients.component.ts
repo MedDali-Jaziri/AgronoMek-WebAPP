@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+
 @Component({
-  selector: 'app-alerts',
-  templateUrl: './alerts.component.html',
-  styleUrls: ['./alerts.component.css']
+  selector: 'app-add-clients',
+  templateUrl: './add-clients.component.html',
+  styleUrls: ['./add-clients.component.css']
 })
-export class AlertsComponent   {
+export class addClientsComponent implements OnInit {
   image: File | undefined;
   fileInputLabel: string | undefined;
 
@@ -45,7 +46,7 @@ export class AlertsComponent   {
     var password = dataSend.password;
     var country = dataSend.country;
     var connectedToGreenHouse = false;
-    var role = "Technician";
+    var role = "Client";
     const queryObj = {
       userName,
       email,
@@ -61,7 +62,7 @@ export class AlertsComponent   {
           Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: 'Add a new Technician',
+            title: 'Add a new Client',
             showConfirmButton: false,
             timer: 1000
           })
